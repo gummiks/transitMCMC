@@ -8,18 +8,11 @@ Description: Helpful for astronomy
 
 from __future__ import print_function
 
-import everest
-import pandas as pd
 import numpy as np
-from astropy import constants as aconst
 import datetime
-import matplotlib.pyplot as plt
 import math
 import os
 
-from astropy.visualization import LogStretch, SqrtStretch, AsinhStretch, HistEqStretch,ZScaleInterval
-from astropy.visualization.mpl_normalize import ImageNormalize
-from astroquery.simbad import Simbad
 
 norm_mean_sub = lambda x: x - np.nanmean(x)
 norm_mean     = lambda x: x/np.nanmean(x)
