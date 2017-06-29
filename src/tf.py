@@ -84,7 +84,7 @@ class TransitFit(object):
         """
         centers = np.array(self.lpf.ps.centers)
         print("Running PyDE Optimizer")
-        self.de = pyde.DiffEvol(self.lpf, self.lpf.ps.bounds, npop, maximize=maximize) # we want to maximize the likelihood
+        self.de = pyde.de.DiffEvol(self.lpf, self.lpf.ps.bounds, npop, maximize=maximize) # we want to maximize the likelihood
         self.min_pv, self.min_pv_lnval = self.de.optimize(ngen=de_iter)
         print("Optimized using PyDE")
         print("Final parameters:",self.min_pv)
