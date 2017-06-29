@@ -2,6 +2,7 @@ import everest
 import numpy as np
 import matplotlib.pyplot as pl
 import astropy
+import sigma_clipping
 
 class EverestMOD(everest.Everest):
     """
@@ -55,7 +56,7 @@ class EverestMOD(everest.Everest):
         self.flux_phased = fwhite[inds]
         
         # sigma clip
-        m = astropy.stats.sigma_clip(self.flux_phased,sigma=sigma).mask
+        m = sigma_clipping.sigma_clip(self.flux_phased,sig=sigma).mask
         self.flux_phased = self.flux_phased[~m]
         self.time_phased = self.time_phased[~m]
         
